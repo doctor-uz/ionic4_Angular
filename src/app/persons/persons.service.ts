@@ -6,7 +6,7 @@ import {Injectable} from '@angular/core';
 export class PersonsService {
   persons: string[] = ['Max', 'Dilshod', 'Nodira'];
 
-  addPerson(name: string){
+  addPerson(name: string) {
     this.persons.push(name);
   }
 }
