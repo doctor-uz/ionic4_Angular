@@ -19,4 +19,8 @@ ngOnInit() {
   this.personList = this.prsService.persons;
 }
 
+onRemovePerson(personName: string) {
+  this.prsService.removePerson(personName);
+}
+
 }
