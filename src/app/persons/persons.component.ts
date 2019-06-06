@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 
 export class PersonsComponent implements OnInit, OnDestroy {
   personList: string[];
+  isLoading = false;
   private personListSubs: Subscription;
   //private personService: PersonsService;
 
@@ -18,11 +19,13 @@ export class PersonsComponent implements OnInit, OnDestroy {
   }
 
 ngOnInit() {
-  this.prsService.fetchPersons();
   //this.personList = this.prsService.persons;
   this.personListSubs = this.prsService.personsChanged.subscribe(persons => {
     this.personList = persons;
+    this.isLoading = false;
   });
+  this.isLoading = true;
+    this.prsService.fetchPersons();
 }
 
 onRemovePerson(personName: string) {
